@@ -2,6 +2,7 @@
 """Doc stuff"""
 import json
 import models
+import os.path
 
 
 class FileStorage():
@@ -23,12 +24,11 @@ class FileStorage():
             json.dump(tmpdict, f)
 
     def reload(self):
-        try:
+        if os.path.exists(self.__file_path):
             with open(self.__file_path, 'r') as f:
                 json_dict = json.load(f)
-                for key, value in json_dict.items():
-                    self.__objects[key] = value['__class__'](**value)
-                    print("in the loop")
-                    print(self.__objects)
-        except:
+                for key in json_dict:
+                    obj = json_dict[key]
+                    self.__objects[key] = getattr(models, obj['__class__'])(**obj)
+        else:
             pass

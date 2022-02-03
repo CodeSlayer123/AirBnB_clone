@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """Doc stuff"""
 import json
-import os
-from models.base_model import BaseModel
+import os.path
 
 
 class FileStorage():
@@ -15,14 +14,16 @@ class FileStorage():
         return self.__objects
 
     def new(self, obj):
-        self.__objects[BaseModel.__class__+ "." + BaseModel.id] = obj
+        self.__objects[type(obj).__name__ + "." + obj.id] = str(obj.__dict__)
 
     def save(self):
         with open(self.__file_path, 'w') as f:
             f.write(json.dumps(self.__objects))
 
     def reload(self):
-        if os.exists(self.__file_path):
+        if os.path.exists(self.__file_path):
             with open(self.__file_path, 'r') as f:
                 self.__objects = json.loads(f.read())
+        else:
+            pass
 

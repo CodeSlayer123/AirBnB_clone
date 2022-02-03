@@ -33,6 +33,6 @@ class BaseModel():
 
     def to_dict(self):
         self.__dict__["__class__"] = "BaseModel"
-        self.created_at = self.created_at.isoformat()
-        self.updated_at = self.updated_at.isoformat()
+        self.created_at = str(self.created_at.isoformat())
+        self.updated_at = str(self.updated_at.isoformat())
         return(self.__dict__)

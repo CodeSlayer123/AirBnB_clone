@@ -7,7 +7,7 @@ from models.engine.file_storage import FileStorage
 from models.__init__ import storage
 
 class HBNBCommand(cmd.Cmd):
-    """Shell"""
+    """Shell for AirBnB"""
     prompt = '(hbnb) '
 
     def emptyline(self):

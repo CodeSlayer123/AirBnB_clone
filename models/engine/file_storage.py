@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Doc stuff"""
+"""Doc stuffs"""
 import json
 import models
 import os.path

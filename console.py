@@ -76,6 +76,7 @@ on the class name and id. Ex: $ show BaseModel 1234-1234-1234"
                     objects = storage.all()
                     try:
                         del(objects[key])
+                        storage.save()
                     except:
                         print("** no instance found **")
 

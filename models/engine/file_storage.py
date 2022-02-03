@@ -1,29 +1,34 @@
 #!/usr/bin/python3
 """Doc stuff"""
 import json
-import os.path
+import models
 
 
 class FileStorage():
     """Doc"""
-    def __init__(self):
-        self.__file_path = "file.json"
-        self.__objects = {}
+    __file_path = "file.json"
+    __objects = {}
 
     def all(self):
         return self.__objects
 
     def new(self, obj):
-        self.__objects[type(obj).__name__ + "." + obj.id] = str(obj.__dict__)
+        self.__objects[obj.__class__.__name__ + "." + obj.id] = obj
 
     def save(self):
+        tmpdict = {}
         with open(self.__file_path, 'w') as f:
-            f.write(json.dumps(self.__objects))
+            for key, value in self.__objects.items():
+                tmpdict[key] = value.to_dict()
+            json.dump(tmpdict, f)
 
     def reload(self):
-        if os.path.exists(self.__file_path):
+        try:
             with open(self.__file_path, 'r') as f:
-                self.__objects = json.loads(f.read())
-        else:
+                json_dict = json.load(f)
+                for key, value in json_dict.items():
+                    self.__objects[key] = value['__class__'](**value)
+                    print("in the loop")
+                    print(self.__objects)
+        except:
             pass
-

@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 """Doc stuff"""
-import cmd, sys
+import cmd
 
-from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 from models.__init__ import storage
+from models import *
+
 
 class HBNBCommand(cmd.Cmd):
     """Shell for AirBnB"""
@@ -23,12 +24,14 @@ class HBNBCommand(cmd.Cmd):
 
         if inp == "":
             print("** class name missing **")
-        elif inp == "BaseModel":
-            b1 = BaseModel()
-            b1.save()
-            print(b1.id)
         else:
-            print("** class doesn't exist **")
+            try:
+                class_model = globals()[inp]
+                obj = class_model()
+                obj.save()
+                print(obj.id)
+            except:
+                print("** class doesn't exist **")
 
     def do_show(self, inp):
         "Prints the string representation of an instance based \
@@ -42,7 +45,7 @@ on the class name and id. Ex: $ show BaseModel 1234-1234-1234"
             inp = inp.split(" ")
 
         if flag == 1:
-            if inp[0] != "BaseModel":
+            if inp not in ("BaseModel", "User", "State", "Review", "Place", "City", "Amenity"):
                 print("** class doesn't exist **")
             else:
                 if len(inp) == 1:
@@ -66,7 +69,7 @@ on the class name and id. Ex: $ show BaseModel 1234-1234-1234"
             inp = inp.split(" ")
 
         if flag == 1:
-            if inp[0] != "BaseModel":
+            if inp not in ("BaseModel", "User", "State", "Review", "Place", "City", "Amenity"):
                 print("** class doesn't exist **")
             else:
                 if len(inp) == 1:
@@ -79,7 +82,6 @@ on the class name and id. Ex: $ show BaseModel 1234-1234-1234"
                         storage.save()
                     except:
                         print("** no instance found **")
-
 
     def do_all(self, inp):
         "Prints all string representation of all \

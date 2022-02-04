@@ -109,7 +109,40 @@ instances based or not on the class name."
     def do_update(self, inp):
         "Updates an instance based on the class \
 name and id by adding or updating attribute"
-        inp = inp.split(" ")
+
+        flag = 1
+
+        if inp == "":
+            print("** class name missing **")
+            flag = 0
+        else:
+            inp = inp.split(" ")
+
+        if flag == 1:
+            if inp[0] not in ("BaseModel", "User", "State", "Review", "Place", "City", "Amenity"):
+                print("** class doesn't exist **")
+            else:
+                if len(inp) == 1:
+                    print("** instance id missing **")
+                else:
+                    key = inp[0] + "." + inp[1]
+                    objects = storage.all()
+                    try:
+                        new_dict = objects[key]
+                        if len(inp) < 3:
+                            print("** attribute name missing **")
+                        else:
+                            if len(inp) < 4:
+                                print("** value missing **")
+                            else:
+                                value = inp[3].replace("\"", "").replace("\'", "")
+                                setattr(new_dict, inp[2], value)
+                                storage.save()
+                    except:
+                        print("** no instance found **")
+
+
+
 
     do_EOF = do_quit
 

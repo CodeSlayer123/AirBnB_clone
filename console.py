@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """Doc stuff"""
-import cmd, sys
+import cmd
 
-from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 from models.__init__ import storage
 from models import *

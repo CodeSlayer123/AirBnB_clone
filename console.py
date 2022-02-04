@@ -45,7 +45,7 @@ on the class name and id. Ex: $ show BaseModel 1234-1234-1234"
             inp = inp.split(" ")
 
         if flag == 1:
-            if inp not in ("BaseModel", "User", "State", "Review", "Place", "City", "Amenity"):
+            if inp[0] not in ("BaseModel", "User", "State", "Review", "Place", "City", "Amenity"):
                 print("** class doesn't exist **")
             else:
                 if len(inp) == 1:
@@ -69,7 +69,7 @@ on the class name and id. Ex: $ show BaseModel 1234-1234-1234"
             inp = inp.split(" ")
 
         if flag == 1:
-            if inp not in ("BaseModel", "User", "State", "Review", "Place", "City", "Amenity"):
+            if inp[0] not in ("BaseModel", "User", "State", "Review", "Place", "City", "Amenity"):
                 print("** class doesn't exist **")
             else:
                 if len(inp) == 1:

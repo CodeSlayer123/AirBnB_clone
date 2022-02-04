@@ -84,14 +84,30 @@ on the class name and id. Ex: $ show BaseModel 1234-1234-1234"
     def do_all(self, inp):
         "Prints all string representation of all \
 instances based or not on the class name."
-        pass
+        objects = storage.all()
+        my_list = []
+
+        for obj_id in objects.keys():
+            if inp:
+                tmp = obj_id.split(".")
+                if tmp[0] == inp:
+                    obj = objects[obj_id]
+                    my_list.append(str(obj))
+            else:
+                obj = objects[obj_id]
+                my_list.append(str(obj))
+        if len(my_list) == 0:
+            print("** class doesn't exist **")
+        else:
+            print(my_list)
 
     def do_update(self, inp):
         "Updates an instance based on the class \
 name and id by adding or updating attribute"
-        pass
+        inp = inp.split(" ")
 
     do_EOF = do_quit
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

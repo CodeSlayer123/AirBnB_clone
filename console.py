@@ -88,20 +88,23 @@ on the class name and id. Ex: $ show BaseModel 1234-1234-1234"
 instances based or not on the class name."
         objects = storage.all()
         my_list = []
-
-        for obj_id in objects.keys():
-            if inp:
-                tmp = obj_id.split(".")
-                if tmp[0] == inp:
+        flag = 0
+        if len(inp) != 0:
+            flag = 1
+        if flag == 1 and inp not in ("BaseModel", "User", "State", "Review", "Place", "City", "Amenity"):
+                print("** class doesn't exist **")
+        else:
+            for obj_id in objects.keys():
+                if inp:
+                    tmp = obj_id.split(".")
+                    if tmp[0] == inp:
+                        obj = objects[obj_id]
+                        my_list.append(str(obj))
+                else:
                     obj = objects[obj_id]
                     my_list.append(str(obj))
-            else:
-                obj = objects[obj_id]
-                my_list.append(str(obj))
-        if len(my_list) == 0:
-            print("** class doesn't exist **")
-        else:
-            print(my_list)
+            if len(my_list) != 0:
+                print(my_list)
 
     def do_update(self, inp):
         "Updates an instance based on the class \

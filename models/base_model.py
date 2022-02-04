@@ -34,7 +34,8 @@ class BaseModel():
 
     def to_dict(self):
         """Docstring"""
-        self.__dict__["__class__"] = self.__class__.__name__
-        self.created_at = self.created_at.isoformat()
-        self.updated_at = self.updated_at.isoformat()
-        return(self.__dict__)
+        tmp_dict = self.__dict__.copy()
+        tmp_dict["__class__"] = self.__class__.__name__
+        tmp_dict['created_at'] = self.created_at.isoformat()
+        tmp_dict['updated_at'] = self.updated_at.isoformat()
+        return(tmp_dict)

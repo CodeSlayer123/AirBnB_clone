@@ -19,7 +19,7 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_create(self, inp):
-        "Creates a new instance of BaseModel, saves it \
+        "Creates a new instance of a class and saves it \
 (to the JSON file) and prints the id. Ex: $ create BaseModel"
 
         if inp == "":

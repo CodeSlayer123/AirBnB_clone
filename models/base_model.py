@@ -9,6 +9,8 @@ class BaseModel():
     """defines all common attributes/methods for other classes"""
 
     def __init__(self,  *args, **kwargs):
+        """Docstrings"""
+
         if kwargs:
             for key, value in kwargs.items():
                 if key != "__class__":
@@ -25,7 +27,9 @@ class BaseModel():
             models.storage.new(self)
 
     def __str__(self):
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
+        """Docstrings"""
+        return "[{}]\
+({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
         """Docstrings"""

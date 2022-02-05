@@ -5,11 +5,16 @@ import cmd
 from models.engine.file_storage import FileStorage
 from models.__init__ import storage
 from models import *
+import sys
 
 
 class HBNBCommand(cmd.Cmd):
     """Shell for AirBnB"""
-    prompt = '(hbnb) '
+
+    if not sys.__stdin__.isatty():
+            prompt = '(hbnb) ' + '\n'
+    else:
+        prompt = '(hbnb) '
 
     def emptyline(self):
         pass
@@ -45,7 +50,8 @@ on the class name and id. Ex: $ show BaseModel 1234-1234-1234"
             inp = inp.split(" ")
 
         if flag == 1:
-            if inp[0] not in ("BaseModel", "User", "State", "Review", "Place", "City", "Amenity"):
+            if inp[0] not in ("BaseModel", "User", "State",
+                              "Review", "Place", "City", "Amenity"):
                 print("** class doesn't exist **")
             else:
                 if len(inp) == 1:
@@ -69,7 +75,8 @@ on the class name and id. Ex: $ show BaseModel 1234-1234-1234"
             inp = inp.split(" ")
 
         if flag == 1:
-            if inp[0] not in ("BaseModel", "User", "State", "Review", "Place", "City", "Amenity"):
+            if inp[0] not in ("BaseModel", "User", "State",
+                              "Review", "Place", "City", "Amenity"):
                 print("** class doesn't exist **")
             else:
                 if len(inp) == 1:
@@ -91,7 +98,8 @@ instances based or not on the class name."
         flag = 0
         if len(inp) != 0:
             flag = 1
-        if flag == 1 and inp not in ("BaseModel", "User", "State", "Review", "Place", "City", "Amenity"):
+        if flag == 1 and inp not in ("BaseModel", "User", "State",
+                                     "Review", "Place", "City", "Amenity"):
                 print("** class doesn't exist **")
         else:
             for obj_id in objects.keys():
@@ -119,7 +127,8 @@ name and id by adding or updating attribute"
             inp = inp.split(" ")
 
         if flag == 1:
-            if inp[0] not in ("BaseModel", "User", "State", "Review", "Place", "City", "Amenity"):
+            if inp[0] not in ("BaseModel", "User", "State",
+                              "Review", "Place", "City", "Amenity"):
                 print("** class doesn't exist **")
             else:
                 if len(inp) == 1:
@@ -141,11 +150,7 @@ name and id by adding or updating attribute"
                     except:
                         print("** no instance found **")
 
-
-
-
     do_EOF = do_quit
-
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

@@ -152,6 +152,7 @@ name and id by adding or updating attribute"
                         print("** no instance found **")
 
     do_EOF = do_quit
+    """ctrl + d"""
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

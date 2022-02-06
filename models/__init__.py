@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""init file"""
+"""init file that imports all classes"""
 
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel

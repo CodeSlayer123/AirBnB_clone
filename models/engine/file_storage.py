@@ -1,12 +1,13 @@
 #!/usr/bin/python3
-"""file storage module"""
+"""the file storage module saving and reloading"""
 import json
 import models
 import os.path
 
 
-class FileStorage():
+class FileStorage:
     """stores all objects in file.json"""
+
     __file_path = "file.json"
     __objects = {}
 

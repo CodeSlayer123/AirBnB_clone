@@ -1,10 +1,10 @@
-#!/usr/bin/python
-"""Docstring"""
+#!/usr/bin/python3
+"""module for review class"""
 from models.base_model import BaseModel
 
 
 class Review(BaseModel):
-    """Docstring"""
+    """setting up review class"""
 
     place_id = ""
     user_id = ""

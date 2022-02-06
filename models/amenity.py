@@ -1,9 +1,9 @@
-#!/usr/bin/python
-"""Docstring"""
+#!/usr/bin/python3
+"""module for amenity class"""
 from models.base_model import BaseModel
 
 
 class Amenity(BaseModel):
-    """Docstring"""
+    """setting up amenity class"""
 
     name = ""

@@ -144,7 +144,8 @@ name and id by adding or updating attribute"
                             if len(inp) < 4:
                                 print("** value missing **")
                             else:
-                                value = inp[3].replace("\"", "").replace("\'", "")
+                                value = \
+                                    inp[3].replace("\"", "").replace("\'", "")
                                 setattr(new_dict, inp[2], value)
                                 storage.save()
                     except:

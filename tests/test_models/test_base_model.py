@@ -6,6 +6,7 @@ from genericpath import exists
 import unittest
 from models.base_model import BaseModel
 from models import storage
+import pep8
 
 
 class TestBaseModel(unittest.TestCase):
@@ -73,6 +74,27 @@ class TestBaseModel(unittest.TestCase):
         # set attr and test it
         self.bm1.Job = "Code Monkey"
         self.assertTrue(self.bm1.Job, exists)
+
+    def test_pep8(self):
+        """
+        Testing pep8 compliance.
+        """
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['models/base_model.py'])
+        self.assertEqual(result.total_errors, 0,
+                         "Found code style errors (and warnings).")
+
+    def test_documentation(self):
+        """
+        tests for module, class, & method documentation.
+        """
+        # Class docstring
+        self.assertTrue(len(BaseModel.__doc__) >= 1)
+        # Method docstrings
+        self.assertTrue(len(BaseModel.__init__.__doc__) >= 1)
+        self.assertTrue(len(BaseModel.__str__.__doc__) >= 1)
+        self.assertTrue(len(BaseModel.save.__doc__) >= 1)
+        self.assertTrue(len(BaseModel.to_dict.__doc__) >= 1)
 
 if __name__ == "__main__":
     unittest.main()

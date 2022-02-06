@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/python3
 """Base model for air bnb clone"""
 import uuid
 from datetime import datetime

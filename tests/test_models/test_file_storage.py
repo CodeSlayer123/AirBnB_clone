@@ -76,15 +76,6 @@ class TestFileStorage(unittest.TestCase):
         self.s1.Job = "Code Monkey"
         self.assertTrue(self.s1.Job, exists)
 
-    def test_pep8(self):
-        """
-        Testing pep8 compliance.
-        """
-        pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['models/file_storage.py'])
-        self.assertEqual(result.total_errors, 0,
-                         "Found code style errors (and warnings).")
-
     def test_documentation(self):
         """
         tests for module, class, & method documentation.

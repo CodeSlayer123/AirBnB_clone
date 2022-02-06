@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/python3
 """Base model for air bnb clone"""
 import uuid
 from datetime import datetime
@@ -15,9 +15,11 @@ class BaseModel:
             for key, value in kwargs.items():
                 if key != "__class__":
                     if key == "created_at":
-                        self.created_at = datetime.fromisoformat(value)
+                        self.created_at = datetime.strptime(
+                            value, '%Y-%m-%dT%H:%M:%S.%f')
                     elif key == "updated_at":
-                        self.updated_at = datetime.fromisoformat(value)
+                        self.updated_at = datetime.strptime(
+                            value, '%Y-%m-%dT%H:%M:%S.%f')
                     else:
                         setattr(self, key, value)
         else:

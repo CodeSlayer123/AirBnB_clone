@@ -30,6 +30,7 @@ class TestBaseModel(unittest.TestCase):
         """
         del self.bm1
         del self.bm2
+        del self.bm3
         storage.save()
 
 
@@ -88,9 +89,7 @@ class TestBaseModel(unittest.TestCase):
         """
         tests for module, class, & method documentation.
         """
-        # Class docstring
         self.assertTrue(len(BaseModel.__doc__) >= 1)
-        # Method docstrings
         self.assertTrue(len(BaseModel.__init__.__doc__) >= 1)
         self.assertTrue(len(BaseModel.__str__.__doc__) >= 1)
         self.assertTrue(len(BaseModel.save.__doc__) >= 1)

@@ -5,11 +5,11 @@ from datetime import datetime
 import models
 
 
-class BaseModel():
+class BaseModel:
     """defines all common attributes/methods for other classes"""
 
     def __init__(self,  *args, **kwargs):
-        """Docstrings"""
+        """initializes BaseModel class"""
 
         if kwargs:
             for key, value in kwargs.items():
@@ -27,17 +27,17 @@ class BaseModel():
             models.storage.new(self)
 
     def __str__(self):
-        """Docstrings"""
+        """prints string format of object"""
         return "[{}]\
 ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
-        """Docstrings"""
+        """saves to file.json"""
         self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
-        """Docstring"""
+        """converts to dictionary"""
         tmp_dict = self.__dict__.copy()
         tmp_dict["__class__"] = self.__class__.__name__
         tmp_dict['created_at'] = self.created_at.isoformat()

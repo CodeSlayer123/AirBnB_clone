@@ -41,6 +41,14 @@ class TestUsers(unittest.TestCase):
         self.assertTrue(self.u1.id, exists)
         self.assertTrue(self.u2.created_at, exists)
         self.assertTrue(self.u3.updated_at, exists)
+        self.assertEqual(self.u1.password, "")
+        self.u2.email = "hello@world.com"
+        self.assertEqual(self.u2.email, "hello@world.com")
+        self.u3.first_name = "Bob"
+        self.u3.last_name = "Jenkins"
+        self.assertEqual(self.u3.first_name, "Bob")
+        self.assertEqual(self.u3.last_name, "Jenkins")
+
 
     def test_str(self):
         """

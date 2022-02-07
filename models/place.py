@@ -1,10 +1,10 @@
-#!/usr/bin/python
-"""Docstring"""
+#!/usr/bin/python3
+"""module for place class"""
 from models.base_model import BaseModel
 
 
 class Place(BaseModel):
-    """Docstring"""
+    """setting up place class"""
 
     city_id = ""
     user_id = ""

@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Doc stuff"""
+"""the console and shell for hbnb"""
 import cmd
 
 from models.engine.file_storage import FileStorage
@@ -9,7 +9,7 @@ import sys
 
 
 class HBNBCommand(cmd.Cmd):
-    """Shell for AirBnB"""
+    """the Shell for AirBnB"""
 
     if not sys.__stdin__.isatty():
             prompt = '(hbnb) ' + '\n'
@@ -17,10 +17,11 @@ class HBNBCommand(cmd.Cmd):
         prompt = '(hbnb) '
 
     def emptyline(self):
+        """does nothing when pressing enter"""
         pass
 
     def do_quit(self, inp):
-        "Exits the shell"
+        "quit will exit the shell"
         return True
 
     def do_create(self, inp):

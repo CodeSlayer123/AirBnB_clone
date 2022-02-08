@@ -33,7 +33,6 @@ class TestUsers(unittest.TestCase):
         del self.u3
         storage.save()
 
-
     def test_init(self):
         """
         Test inits
@@ -45,7 +44,6 @@ class TestUsers(unittest.TestCase):
         self.assertEqual(self.u2.email, "")
         self.assertEqual(self.u3.first_name, "")
         self.assertEqual(self.u3.last_name, "")
-
 
     def test_str(self):
         """

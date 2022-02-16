@@ -1,0 +1,15 @@
+header {
+    background-color:white;
+    height: 70px;
+    width:100%;
+    top: 0;
+    left: 0;
+    border-bottom: 1px solid #CCCCCC;
+}
+
+div.logo::before {
+    margin-left: 20px;
+    float:left;
+    top:50%;
+    content:url(file:///home/blessed/Holberton_School/Hbnb/CodeSlayerFork/AirBnB_clone/web_static/images/logo.png);
+}

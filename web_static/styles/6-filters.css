@@ -27,18 +27,58 @@ button:hover {
     border-right: 1px solid #DDDDDD;
     text-indent: 50px;
     vertical-align: middle;
+    position: relative;
+    display: inline-block;
 }
 
 .amenities {
     height: 100%;
     width: 25%;
     flex-grow:1;
-    padding-left: 50px;
+    text-indent: 50px;
     vertical-align: middle;
+    position: relative;
+    display: inline-block;
 
 }
 
+.popover{
+    display: none;
+    color:black;
+    position: relative;
+    background-color: #FAFAFA;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    margin-top: 25px;
+    text-indent: -20px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+.popover li{
+    display: block;
+}
 
+.locations:hover .popover{
+    display: block;
+
+}
+.amenities:hover .popover{
+    display: block;
+}
+
+.city{
+
+    text-indent: -40px;
+}
+
+.amens{
+    text-indent: 5px;
+}
+
+h2{
+    font-size: 16px;
+    line-height: 0;
+}
 h3 {
     font-weight: 600;
     color:black;
@@ -50,7 +90,6 @@ h4 {
     font-size: 14px;
     color: black;
     line-height: 0;
-
 }
 
 .hide{

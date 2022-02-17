@@ -6,6 +6,7 @@
     border-radius: 4px;
     display: flex;
     align-items:center;
+    position:relative;
 }
 
 button {
@@ -29,6 +30,7 @@ button:hover {
     vertical-align: middle;
     position: relative;
     display: inline-block;
+
 }
 
 .amenities {
@@ -39,7 +41,6 @@ button:hover {
     vertical-align: middle;
     position: relative;
     display: inline-block;
-
 }
 
 .popover{
@@ -75,6 +76,9 @@ button:hover {
     text-indent: 5px;
 }
 
+.amenities .popover {
+    width: 50%;
+}
 h2{
     font-size: 16px;
     line-height: 0;

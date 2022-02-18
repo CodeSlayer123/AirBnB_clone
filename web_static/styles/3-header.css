@@ -5,11 +5,12 @@ header {
     top: 0;
     left: 0;
     border-bottom: 1px solid #CCCCCC;
+    display: flex;
+    justify-content: left;
+    align-items: center;
 }
 
 div.logo::before {
     margin-left: 20px;
-    float:left;
-    top:50%;
     content:url(file:///home/blessed/Holberton_School/Hbnb/CodeSlayerFork/AirBnB_clone/web_static/images/logo.png);
 }

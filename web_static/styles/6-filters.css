@@ -71,9 +71,15 @@ button:hover {
 
     text-indent: -40px;
 }
+.city:hover{
+    color:grey;
+}
 
 .amens{
     text-indent: 5px;
+}
+.amens:hover{
+    color:grey;
 }
 
 .amenities .popover {

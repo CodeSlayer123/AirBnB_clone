@@ -4,13 +4,13 @@ footer {
     width: 100%;
     position: absolute;
     bottom: 0;
-    left: 0%;
     border-top: 1px solid #CCCCCC;
-    text-align: center;
-    line-height: 50px;
     display: flex;
     justify-content: center;
     align-items:center;
-    position: static;
-}
 
+}
+.static-footer footer{
+    position: static;
+
+}
